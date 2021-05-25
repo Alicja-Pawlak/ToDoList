@@ -1,0 +1,128 @@
+@mixin card($rotate,$color,$font,$font-size,$font-weight) {
+    transform: $rotate;
+    background-color: $color;
+    font-family: $font;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:auto;
+    padding: 70px;
+    color: rgb(51, 51, 59);
+    border: 1px solid $forBorder;
+    box-shadow: 2px 2px 5px rgb(196, 196, 196);
+}
+@mixin button($padding){
+    background-color: white;
+    color: $darkGray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    border: 2px solid $darkGray;
+    border-radius: 10px;
+    padding: $padding;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+@mixin center($justify)
+{
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+$darkGray: rgb(94, 94, 94);
+$forBorder: rgb(184, 184, 184);
+
+body{
+    background-image: url('img/\'9106e9b6.png\'');
+}
+
+#cards{
+    display: flex;
+    justify-content:center;
+    margin: 50px 0px;
+    width: 100%;
+}
+
+
+.to-Word{
+    @include card(rotate(-10deg),rgb(255, 255, 132),'Courier New',90px,900);
+    
+}
+.do-Word{
+    @include card(rotate(-5deg),rgb(184, 255, 237),'Lucida Handwriting',80px,300);
+    
+}
+.list-Word{
+    @include card(rotate(10deg),rgb(255, 220, 246),'Verdana',70px,600);
+    
+}
+
+#add{
+    @include center(center);
+    padding-top: 15px;
+
+    input{
+        padding: 10px;
+        border:1px solid $darkGray;
+        border-radius: 10px;
+        
+    }
+    button{
+        @include button(8px); 
+        border:1px solid $darkGray;
+        margin-left: 2px;
+    }
+    button:hover{
+        background-color: $darkGray;
+        color: white;
+        
+    }
+}
+#search{
+    @include center(space-between);
+    margin: 10px 50px 0px 50px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    font-weight: 100;
+    font-size: 13px;
+    input{
+        padding: 5px;
+        border: 1px solid $darkGray;
+        border-radius: 10px;
+        
+    }
+}
+// How many tasks left
+
+
+.task{
+    @include center(space-between);
+    font-family: 'Verdana';
+    font-weight: 100;
+    font-size: 25px;
+    padding: 20px;
+    margin:10px 50px 0 0;
+    box-shadow: 2px 2px 5px rgb(189, 189, 189);
+    background-color: white;
+    border:1px solid $forBorder;
+    // border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+.checkbox{
+    margin-right: 30px;
+    transform: scale(2.7);
+}
+.removeButton{
+    @include button(0);
+}
+.removeButton:hover{
+    background-color: rgb(219, 67, 67);
+    color: white;
+    border: 2px solid rgb(219, 67, 67);
+    
+}
+.fa-trash-alt{
+    padding:1em;
+}
